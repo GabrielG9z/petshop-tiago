@@ -1,10 +1,8 @@
-import React from "react";
 import estilos from "./Contato.module.css";
-
-export const Contato = () => {
+const Contato = () => {
   return (
     <section>
-      <h2 className={estilos.titulo_secao}>Contato</h2>
+      <h2 className={estilos.titulo_secao}>Fale Conosco</h2>
     </section>
   );
 };
