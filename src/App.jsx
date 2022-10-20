@@ -1,4 +1,5 @@
 import Cabecalho from "./components/Cabecalho/Cabecalho";
+import Contato from "./pages/Contato/Contato";
 import Home from "./pages/Home/Home";
 import Produtos from "./pages/produtos/Produtos";
 import Sobre from "./pages/sobre/Sobre";
