@@ -1,0 +1,10 @@
+/* Devemos usar o underline pois a classe vai ser acessada como objeto, e não é possível usar hífen */
+
+.titulo_secao::before {
+  content: "🤹🏻‍♀️";
+  margin-right: 0.5rem;
+}
+
+.titulo_secao {
+  color: blueviolet;
+}
