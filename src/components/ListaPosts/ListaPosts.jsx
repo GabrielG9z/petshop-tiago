@@ -7,18 +7,21 @@ const ListaPosts = () => {
   console.log(serverApi);
   const postsTemp = [];
 
-  useEffect(() => {
-    async function getPosts() {
-      try {
-        const resposta = await fetch(`${serverApi}/posts`);
-        const dados = await resposta.json();
-        setPosts(dados);
-      } catch (error) {
-        console.log("Deu ruim! " + error.message);
+  useEffect(
+    () => {
+      async function getPosts() {
+        try {
+          const resposta = await fetch(`${serverApi}/posts`);
+          const dados = await resposta.json();
+          setPosts(dados);
+        } catch (error) {
+          console.log("Deu ruim! " + error.message);
+        }
       }
-    }
-    getPosts();
-  }, []);
+      getPosts();
+    } /* Esse segundo parâmetro faz a comunicação do getposts, atualiza o estado e para, para que não ocorra um loop infinito. */,
+    []
+  );
 
   /* Este hook visa permitir um maior controle sobre "efeitos colaterais" na execução do componente.
   
