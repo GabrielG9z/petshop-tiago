@@ -5,8 +5,9 @@ const Home = () => {
   return (
     <section>
       <h2 className={estilos.titulo_secao}>Pet Notícias</h2>
+
       <ListaCategorias />
-      <ListaPosts />
+      <ListaPosts url="posts" />
     </section>
   );
 };

@@ -6,9 +6,11 @@ const Contato = () => {
       <h2 className={estilos.titulo_secao}>Fale Conosco</h2>
 
       <Caixa>
-        <p>
-          <i>Em breve teremos um formulário com biblioteca de componentes...</i>
-        </p>
+        <form action="" method="post"></form>
+        <div>
+          <label htmlFor="">Nome: </label>
+          <input type="text" id="nome" name="nome " required />
+        </div>
       </Caixa>
     </section>
   );

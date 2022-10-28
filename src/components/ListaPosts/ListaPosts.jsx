@@ -1,46 +1,50 @@
-import { useState, useEffect } from "react"; //Hooks do React
-import serverApi from "../../api/server-api";
-import estilos from "./ListaPosts.module.css";
-import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
+import { useState, useEffect } from "react"; // Hooks do React
+
+import serverApi from "../../api/servidor-api";
 import ArtigoPost from "../ArtigoPost/ArtigoPost";
-const ListaPosts = () => {
-  /* Iniciamos o state do componente com um array vazio, para posteriormente "preenchê-lo" com os dados da API. Esta atribuição será feita com auxílio do setPosts. */
+import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
+import estilos from "./ListaPosts.module.css";
+const ListaPosts = ({ url }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(
-    // setLoading(true);
-    () => {
-      async function getPosts() {
-        try {
-          const resposta = await fetch(`${serverApi}/posts`);
-          const dados = await resposta.json();
-          setPosts(dados);
-          setLoading(false);
-        } catch (error) {
-          console.log("Deu ruim! " + error.message);
-        }
+  useEffect(() => {
+    setLoading(true);
+    async function getPosts() {
+      try {
+        // const resposta = await fetch(`${serverApi}/posts`);
+
+        // Solução Guilherme
+        // const resposta = await fetch(`${serverApi}/${url || "posts"}`);
+
+        // Solução Adriel
+        /* const resposta = await fetch(
+          `${serverApi}/${url != undefined ? url : "posts"}`
+        ); */
+
+        const resposta = await fetch(`${serverApi}/${url}`);
+        const dados = await resposta.json();
+        setPosts(dados);
+        setLoading(false);
+      } catch (error) {
+        console.log("Deu ruim! " + error.message);
       }
-      getPosts();
-    },
-    /* Esse segundo parâmetro [] faz a comunicação do getposts, atualiza o estado e para, para que não ocorra um loop infinito. */ []
-  );
+    }
+    getPosts();
+    /* É necessário indicar a url como dependência pois
+    ela muda toda vez em que uma categoria é clicada.
+    
+    Desta forma, o useEffect "entende" que ele deve executar novamente
+    as suas ações (neste caso, executar novamente o fetch na API) */
+  }, [url]);
 
   if (loading) {
-    return <LoadingDesenho />;
+    return <LoadingDesenho texto="posts..." />;
   }
 
-  /* Este hook visa permitir um maior controle sobre "efeitos colaterais" na execução do componente.
-  
-  Recebe dois parâmetros:
-
-  1-: função callback com oque será executado
-  2-: lista de dependências que indicarão ao useEffect quando ele deverá funcionar
-
-  - Se não passar a lista (ou seja, se deixar sem []), useEffect executará toda vez que o componente for renderizado. portanto, o callback se torna um loop infinito.
-
-  -Se passar a lista vazia (ou seja, deixar o [] vazio), useEffect executará somente no momento que o componente é renderizado pela primeira vez, evitando o loop infinito do callback.
-  */
+  if (posts.length === 0) {
+    return <h2 style={{ textAlign: "center" }}> Não há posts!</h2>;
+  }
 
   return (
     <div className={estilos.lista_posts}>

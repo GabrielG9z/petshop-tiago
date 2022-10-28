@@ -22,12 +22,19 @@
 .lista_posts a:hover,
 .lista_posts a:focus {
   color: #2320c9;
-  transition: 0.4s;
 }
 
-/* Quando um link contido em .post receber foco do teclado, também acionará a transformação */
+/* Quando um link contido em .post receber foco do teclado,
+também acionará a transformação */
 .post:has(> a:focus),
 .post:hover {
-  transform: scale(1.04);
   cursor: pointer;
+  transform: scale(1.05);
 }
+
+/* Para padronizar o outline (bordinha que surge ao navegar via teclado) */
+/* a:hover,
+a:focus {
+  outline-color: red;
+  outline-style: solid;
+} */
