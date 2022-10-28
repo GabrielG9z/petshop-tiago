@@ -35,7 +35,6 @@ const ListaCategorias = () => {
   }, []);
   return (
     <div className={estilos.Lista_categorias}>
-      {" "}
       <ul>
         {categorias.map((id, nome) => {
           return (

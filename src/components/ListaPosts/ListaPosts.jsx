@@ -9,6 +9,7 @@ const ListaPosts = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(
+    // setLoading(true);
     () => {
       async function getPosts() {
         try {
