@@ -2,6 +2,15 @@ import { Button, TextField } from "@mui/material";
 import Caixa from "../../components/Caixa/Caixa";
 import estilos from "./Contato.module.css";
 const Contato = () => {
+  /* Eventos/Funções para captura da digitação nos campos */
+  const inputNome = (event) => setNome(event.target.value);
+  const inputEmail = (event) => setEmail(event.target.value);
+  const inputMensagem = (event) => setMensagem(event.target.value);
+
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [mensagem, setMensagem] = useState("");
+
   return (
     <section>
       <h2 className={estilos.titulo_secao}>Fale Conosco</h2>
@@ -10,6 +19,7 @@ const Contato = () => {
         <form method="post" className={estilos.formulario}></form>
         <div>
           <TextField
+            onChange={inputNome}
             label="Nome"
             variant="filled"
             fullWidth
@@ -19,6 +29,9 @@ const Contato = () => {
         </div>
         <div>
           <TextField
+            onChange={
+              inputEmail
+            } /* Só é preciso o nome da função no onChange sem o parenteses */
             label="Email"
             variant="filled"
             fullWidth
@@ -28,6 +41,7 @@ const Contato = () => {
         </div>
         <div>
           <TextField
+            onChange={inputEmail}
             type="text"
             label="Mensagem"
             variant="outlined"
@@ -40,7 +54,7 @@ const Contato = () => {
         </div>
 
         <div>
-          <Button type="submit" variant="contained">
+          <Button type="submit" variant="contained" onChange={inputMensagem}>
             ENVIAR MENSAGEM
           </Button>
         </div>
