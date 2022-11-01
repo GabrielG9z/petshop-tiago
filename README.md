@@ -87,4 +87,20 @@ Duplique e comente a linha da constante atual (serverApi).
 Na versão descomentada, substitua o `localhost` pelo `numero.ip.da.sua.maquina`.
 
 Pare a api no terminal e execute novamente
-`npm run api`
+`npm run api`.
+
+Pare a API no terminal
+
+---
+
+## Tornando o app React em uma aplicação instalável no dispositivo (PWA)
+
+### Configurar o arquivo manifest.json
+
+Um **arquivo de manifesto** é um arquivo JSON contendo informações sobre seu aplicativo web e, quando combinado com um **Service Worker**, permite a instalação do aplicativo em qualquer dispositivo compatível.
+
+### Configurar/Programar um Service Worker JavaScript
+
+Um **Service Worker** (Trabalhador/Manipulador de Serviços) é um script que o navegador executa em segundo plano separado da aplicação web, possibilitando recursos que não precisam de uma página ou interações com o usuário.
+
+O Service Worker está no centro de muitos recursos das chamadas **PWAs (Progressive Web Applications)**, tais como: cache offline sincronização em segundo plano, notificações, execução independente do navegador mobile etc.
