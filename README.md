@@ -72,3 +72,19 @@ Telas de até o tamanho X (max-width)
 Em vez de usar uma `div` em cada página agrupando conteúdos diferentes, isolamos ela num componente genérico (**Caixa**), aplicamos o CSS uma única vez usando módulo do componente, e programos através de `props` o carregamento dinâmico do conteúdo (**children**) e de classes adicionais (**listaDeClasses**).
 
 **Dica:** você pode usar **destructuring** de objetos nas `props`!
+
+## package.json
+
+Altere a linha: `"api": "json-server --watch db.json --port 2112`
+Para: `"api": "json-server --(ipv4 da sua maquina) db.json --port 2112`
+
+Exemplo: `"api": "json-server --10.20.46.65 db.json --port 2112`
+
+### servidor.api.js
+
+Duplique e comente a linha da constante atual (serverApi).
+
+Na versão descomentada, substitua o `localhost` pelo `numero.ip.da.sua.maquina`.
+
+Pare a api no terminal e execute novamente
+`npm run api`
