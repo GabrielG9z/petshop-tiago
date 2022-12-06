@@ -29,7 +29,7 @@ const Contato = () => {
     /* Script para envio dos dados para a API */
 
     try {
-      await fetch(`${serverApi}/contatos`, opcoes);
+      await fetch(`${serverApi}/contatos.json`, opcoes);
       alert("Dados enviados!");
       history.push("/"); //Redirecionar para a "home/blog"
     } catch (error) {
