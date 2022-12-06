@@ -71,5 +71,12 @@
       "categoria": "bem-estar"
     }
   ],
-  "contatos": [{}]
+  "contatos": [
+    {
+      "nome": "Gabriel G. de Assis",
+      "email": "genovezgabriel2012@gmail.com",
+      "mensagem": "Olá este é um teste....",
+      "id": 1
+    }
+  ]
 }
