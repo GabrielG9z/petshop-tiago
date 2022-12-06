@@ -23,7 +23,7 @@ const Contato = () => {
       method: "POST",
       body: JSON.stringify({ nome, email, mensagem }),
       headers: {
-        "Content-type": "application/json; charset=utf8",
+        "Content-type": "application/json; charset=UTF-8",
       },
     };
     /* Script para envio dos dados para a API */
@@ -48,9 +48,9 @@ const Contato = () => {
 
       <Caixa>
         <form
+          onSubmit={enviarContato}
           method="post"
           className={estilos.formulario}
-          onSubmit={enviarContato}
         ></form>
         <div>
           <TextField
@@ -89,7 +89,12 @@ const Contato = () => {
         </div>
 
         <div>
-          <Button type="submit" variant="contained" disabled={desabilitado}>
+          <Button
+            type="submit"
+            variant="contained"
+            disabled={desabilitado}
+            onPress={enviarContato}
+          >
             ENVIAR MENSAGEM
           </Button>
         </div>
